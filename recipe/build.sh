@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -ex
 
-mkdir "${PREFIX}/bin"
-${FC} ${LDFLAGS} ${FFLAGS} fpm-*.F90 -o "${PREFIX}/bin/fpm"
+export FPM_C_COMPILER="${CC}"
+fpm install --compiler ${FC} --flags "${LDFLAGS} ${FFLAGS}" --prefix "${PREFIX}"

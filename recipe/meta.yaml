@@ -1,13 +1,14 @@
 {% set name = "fpm" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.F90
-  sha256: a0670253a27a8b3745e694279d1c5feacbb111a932537c5932edde0c0f3ffa8b
+  #url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.F90
+  url: https://github.com/fortran-lang/fpm/archive/0faa0021cdc5d8ad15d9693e9ce27f7b2fb196ac.tar.gz
+  sha256: 609c3da0ea86a969e9bc3001598fd1e15efb7ec18e6d2684f6e7276290111481
 
 build:
   number: 0
@@ -15,6 +16,7 @@ build:
 
 requirements:
   build:
+    - fpm
     - {{ compiler('fortran') }}  # [unix]
   host:
     - llvm-openmp  # [osx]
