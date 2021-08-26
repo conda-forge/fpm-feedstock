@@ -16,8 +16,10 @@ build:
 
 requirements:
   build:
-    - fpm
+    - {{ compiler('c') }}  # [unix]
     - {{ compiler('fortran') }}  # [unix]
+    - fpm  # [build_platform != target_platform]
+    - curl  # [build_platform == target_platform]
   host:
     - llvm-openmp  # [osx]
     - libgomp  # [linux and not aarch64]
