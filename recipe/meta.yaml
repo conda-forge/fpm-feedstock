@@ -9,6 +9,8 @@ source:
   #url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.F90
   url: https://github.com/fortran-lang/fpm/archive/0faa0021cdc5d8ad15d9693e9ce27f7b2fb196ac.tar.gz
   sha256: 609c3da0ea86a969e9bc3001598fd1e15efb7ec18e6d2684f6e7276290111481
+  patches:
+    - 01-opendir-osx-arm.patch
 
 build:
   number: 0
