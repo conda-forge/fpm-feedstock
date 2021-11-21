@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
 set -ex
 
-# First build our bootstrapper version
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "1" ]]; then
+  # MACOSX_DEPLOYMENT_TARGET is for the target_platform and not for build_platform
+  unset MACOSX_DEPLOYMENT_TARGET
+else
+  # We need to fix the Fortran compiler for MacOS/x86_64
+  FC_FOR_BUILD="${FC}"
+fi
+
+# First, build our bootstrapper version
 bootstrap=build/bootstrap
 mkdir -p $bootstrap
-"${FC_FOR_BUILD:-${FC}}" -J $bootstrap -o $bootstrap/fpm fpm-*.F90
+"${FC_FOR_BUILD}" -J $bootstrap -o $bootstrap/fpm fpm-*.F90
 
-# Set environment variables for fpm
+# Set environment variables for fpm to the actual compiler
 export FPM_FC="${FC}"
 export FPM_CC="${CC}"
 export FPM_AR="${AR:-ar}"
