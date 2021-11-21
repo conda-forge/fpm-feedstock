@@ -1,5 +1,5 @@
 {% set name = "fpm" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/fortran-lang/fpm/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 6c1574273164f859591547b7aae3b2d39471cf8a1d901cf1e453e607fbe9757a
+  sha256: 8e80f5667f316dc0f6f1ca7d70c5cc2c67180204a00638aec639eabfb2840ca7
 
 build:
   number: 0
-  skip: True  # [win]
+  skip: true  # [win]
 
 requirements:
   build:
@@ -33,11 +33,11 @@ about:
   license: MIT
   license_family: MIT
   license_file:
-    - "LICENSE"
-    - "LICENSE-MIT.toml-f"
-    - "LICENSE-Apache.toml-f"
-    - "LICENSE.M_CLI2"
-  summary: "Fortran package manager"
+    - LICENSE
+    - LICENSE-MIT.toml-f
+    - LICENSE-Apache.toml-f
+    - LICENSE.M_CLI2
+  summary: Fortran package manager
   doc_url: https://fpm.fortran-lang.org
   dev_url: https://github.com/fortran-lang/fpm
 
