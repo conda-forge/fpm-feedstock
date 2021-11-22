@@ -1,13 +1,15 @@
 {% set name = "fpm" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/fortran-lang/fpm/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 6c1574273164f859591547b7aae3b2d39471cf8a1d901cf1e453e607fbe9757a
+  - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.F90
+    sha256: 53bba4d3d09d875d513ed4309a3defe414fa727dbcdeb38e4fdcf094e19c0257
+  - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.zip
+    sha256: e4a06956d2300f9aa1d06bd3323670480e946549617582e32684ded6921a921e
 
 build:
   number: 0
@@ -17,11 +19,8 @@ requirements:
   build:
     - {{ compiler('c') }}  # [unix]
     - {{ compiler('fortran') }}  # [unix]
-    - fpm  # [build_platform != target_platform]
-    - curl  # [build_platform == target_platform]
-  host:
     - llvm-openmp  # [osx]
-    - libgomp  # [linux and not aarch64]
+    - libgomp  # [linux]
 
 
 test:

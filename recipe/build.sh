@@ -1,10 +1,26 @@
 #!/usr/bin/env bash
 set -ex
 
-export FPM_C_COMPILER="${CC}"
-if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == 1 ]]; then
-  fpm install --compiler "${FC}" --flag "${LDFLAGS} ${FFLAGS}" --prefix "${PREFIX}"
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "1" ]]; then
+  # MACOSX_DEPLOYMENT_TARGET is for the target_platform and not for build_platform
+  unset MACOSX_DEPLOYMENT_TARGET
 else
-  export FFLAGS="${LDFLAGS} ${FFLAGS}"
-  ./install.sh --prefix="${PREFIX}"
+  # We need to fix the Fortran compiler for MacOS/x86_64
+  FC_FOR_BUILD="${FC}"
 fi
+
+# First, build our bootstrapper version
+bootstrap=build/bootstrap
+mkdir -p $bootstrap
+"${FC_FOR_BUILD}" -J $bootstrap -o $bootstrap/fpm fpm-*.F90
+
+# Set environment variables for fpm to the actual compiler
+export FPM_FC="${FC}"
+export FPM_CC="${CC}"
+export FPM_AR="${AR:-ar}"
+export FPM_LDFLAGS="${LDFLAGS}"
+export FPM_FCFLAGS="${FCFLAGS}"
+export FPM_CFLAGS="${CFLAGS}"
+
+# Build actual full fpm version
+$bootstrap/fpm install --prefix "${PREFIX}"
