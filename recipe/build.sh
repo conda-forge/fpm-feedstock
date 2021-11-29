@@ -3,6 +3,7 @@ set -ex
 
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" == "1" ]]; then
   # MACOSX_DEPLOYMENT_TARGET is for the target_platform and not for build_platform
+  _MACOSX_DEPLOYMENT_TARGET=${MACOSX_DEPLOYMENT_TARGET}
   unset MACOSX_DEPLOYMENT_TARGET
 else
   # We need to fix the Fortran compiler for MacOS/x86_64
@@ -21,6 +22,9 @@ export FPM_AR="${AR:-ar}"
 export FPM_LDFLAGS="${LDFLAGS}"
 export FPM_FCFLAGS="${FCFLAGS}"
 export FPM_CFLAGS="${CFLAGS}"
+if [ -z ${_MACOSX_DEPLOYMENT_TARGET+x} ]; then
+  export MACOSX_DEPLOYMENT_TARGET=${_MACOSX_DEPLOYMENT_TARGET}
+fi
 
 # Build actual full fpm version
 $bootstrap/fpm install --prefix "${PREFIX}"
