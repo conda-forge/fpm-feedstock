@@ -6,14 +6,18 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.F90
-    sha256: 53bba4d3d09d875d513ed4309a3defe414fa727dbcdeb38e4fdcf094e19c0257
-  - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.zip
-    sha256: e4a06956d2300f9aa1d06bd3323670480e946549617582e32684ded6921a921e
+  - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.F90  # [unix]
+    sha256: 53bba4d3d09d875d513ed4309a3defe414fa727dbcdeb38e4fdcf094e19c0257  # [unix]
+    fn: fpm.F90  # [unix]
+    folder: build/bootstrap  # [unix]
+  - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.zip  # [unix]
+    sha256: e4a06956d2300f9aa1d06bd3323670480e946549617582e32684ded6921a921e  # [unix]
+  - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}-windows-x86_64.exe  # [win]
+    sha256: 4d952a40db687ccc0b7b94d8c256b7bb48e11501c2b56719962dabac14265dd8  # [win]
+    fn: fpm.exe  # [win]
 
 build:
-  number: 1
-  skip: True  # [win]
+  number: 2
 
 requirements:
   build:
