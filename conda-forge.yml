@@ -5,3 +5,6 @@ build_platform:
 provider:
   linux_ppc64le: default
   linux_aarch64: default
+github:
+  branch_name: main
+  tooling_branch_name: main
