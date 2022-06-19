@@ -1,5 +1,5 @@
 {% set name = "fpm" %}
-{% set version = "0.5.0" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,17 +7,17 @@ package:
 
 source:
   - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.F90  # [unix]
-    sha256: 53bba4d3d09d875d513ed4309a3defe414fa727dbcdeb38e4fdcf094e19c0257  # [unix]
+    sha256: 17a809d512618ddb083b1d8c546a2d98e704b10484f607df7b0b231ddc8ff277  # [unix]
     fn: fpm.F90  # [unix]
     folder: build/bootstrap  # [unix]
   - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.zip  # [unix]
-    sha256: e4a06956d2300f9aa1d06bd3323670480e946549617582e32684ded6921a921e  # [unix]
+    sha256: 365516f66b116a112746af043e8eccb3d854d6feb1fad0507c570433dacbf7be  # [unix]
   - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}-windows-x86_64.exe  # [win]
-    sha256: 4d952a40db687ccc0b7b94d8c256b7bb48e11501c2b56719962dabac14265dd8  # [win]
+    sha256: 51643e74ebeb3e2222d8a21abf3a9eea87a56f09c2ac67137d6a41ac851fa7a0  # [win]
     fn: fpm.exe  # [win]
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
