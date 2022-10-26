@@ -1,5 +1,5 @@
 {% set name = "fpm" %}
-{% set version = "0.6.0" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,17 +7,17 @@ package:
 
 source:
   - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.F90  # [unix]
-    sha256: 17a809d512618ddb083b1d8c546a2d98e704b10484f607df7b0b231ddc8ff277  # [unix]
+    sha256: d16e45b705029d6d38b0ba7cccab2b9edb48c2f29441473548b866da0389243e  # [unix]
     fn: fpm.F90  # [unix]
     folder: build/bootstrap  # [unix]
   - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.zip  # [unix]
-    sha256: 365516f66b116a112746af043e8eccb3d854d6feb1fad0507c570433dacbf7be  # [unix]
+    sha256: 536dec7d4502221734683b15e6ff64a6ab3f9910df122d18f851c9a68711f91f  # [unix]
   - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}-windows-x86_64.exe  # [win]
-    sha256: 51643e74ebeb3e2222d8a21abf3a9eea87a56f09c2ac67137d6a41ac851fa7a0  # [win]
+    sha256: 0023cc21e71d0c6715c90d0183a2b073d2d1e836a3ddee87523b31b69ceadf3c  # [win]
     fn: fpm.exe  # [win]
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -36,11 +36,11 @@ about:
   license: MIT
   license_family: MIT
   license_file:
-    - "LICENSE"
-    - "LICENSE-MIT.toml-f"
-    - "LICENSE-Apache.toml-f"
-    - "LICENSE.M_CLI2"
-  summary: "Fortran package manager"
+    - LICENSE
+    - LICENSE-MIT.toml-f
+    - LICENSE-Apache.toml-f
+    - LICENSE.M_CLI2
+  summary: Fortran package manager
   doc_url: https://fpm.fortran-lang.org
   dev_url: https://github.com/fortran-lang/fpm
 
