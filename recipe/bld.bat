@@ -1,4 +1,4 @@
-%FC% -J build\bootstrap -o \build\bootstrap\fpm.exe build\bootstrap\fpm.F90
+%FC% -J build\bootstrap -o build\bootstrap\fpm.exe build\bootstrap\fpm.F90
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 set FPM_FC=%FC%
