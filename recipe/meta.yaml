@@ -17,12 +17,13 @@ source:
     fn: fpm.exe  # [win]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
     - {{ compiler('c') }}  # [unix]
-    - {{ compiler('fortran') }}  # [unix]
+    - {{ stdlib("c") }}    # [unix]
+    - {{ compiler("fortran") }}
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
 
