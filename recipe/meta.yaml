@@ -23,6 +23,7 @@ requirements:
   build:
     - {{ compiler('c') }}  # [unix]
     - {{ compiler('fortran') }}  # [unix]
+    - {{ stdlib("c") }}  # [unix]
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
 
