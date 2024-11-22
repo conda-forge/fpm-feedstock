@@ -1,5 +1,5 @@
 {% set name = "fpm" %}
-{% set version = "0.10.0" %}
+{% set version = "0.10.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.F90  # [unix]
-    sha256: 48e563db74af6b9396ebe4a67bd371210e2ea8c6e2b3cc230e68183ce7509422  # [unix]
+    sha256: 7553d05b60c2a7e889a23ba10a0784155169ba01bfc7e0ca846f7ce90b84e1ca  # [unix]
     fn: fpm.F90  # [unix]
     folder: build/bootstrap  # [unix]
   - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.zip  # [unix]
-    sha256: 00d687e17bdada4dcae0ff1ea2e01bad287dcc77a74c3bbde0c9ff9633b655bb  # [unix]
+    sha256: dd97b3b61f2ec8a7ea7a2a588920097f513f74ff8b1a12531074dad07c81dc6c  # [unix]
   - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}-windows-x86_64.exe  # [win]
-    sha256: 7db6103f5862c4cd60eab8c4b43fac2211352d15f6a45926c6db9383e0f1cdbc  # [win]
+    sha256: 6c17bc4b6736161add52897d7b96634142e630746810f1ad8e2d3bc00973447a  # [win]
     fn: fpm.exe  # [win]
 
 build:
@@ -23,6 +23,7 @@ requirements:
   build:
     - {{ compiler('c') }}  # [unix]
     - {{ compiler('fortran') }}  # [unix]
+    - {{ stdlib("c") }}  # [unix]
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
 
