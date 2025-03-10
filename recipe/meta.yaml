@@ -1,5 +1,5 @@
 {% set name = "fpm" %}
-{% set version = "0.10.1" %}
+{% set version = "0.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,16 +7,16 @@ package:
 
 source:
   - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.F90
-    sha256: 7553d05b60c2a7e889a23ba10a0784155169ba01bfc7e0ca846f7ce90b84e1ca
+    sha256: 988a3317ee2448ee7207d0a29410f08a79c86bddac3314b2a175801a9cf58d27
     fn: fpm.F90
-    patches:        # [win]
+    patches:   # [win]
       - resp.patch  # [win]
     folder: build/bootstrap
   - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.zip
-    sha256: dd97b3b61f2ec8a7ea7a2a588920097f513f74ff8b1a12531074dad07c81dc6c
+    sha256: f6c998c9afd39eb42c7e80a306cfbed5faa77eaa42eb4f75b93864c338db1795
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
