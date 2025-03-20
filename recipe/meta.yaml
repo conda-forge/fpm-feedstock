@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://github.com/fortran-lang/fpm/releases/download/v{{ version }}/fpm-{{ version }}.F90
-    sha256: 988a3317ee2448ee7207d0a29410f08a79c86bddac3314b2a175801a9cf58d27
+  - url: https://github.com/fortran-lang/fpm/releases/download/v0.8.2/fpm-0.8.2.F90
+    sha256: 0c95309f365a40900108f3325e17e99a0456ce76046c37326349bf61b3df447a
     fn: fpm.F90
     patches:   # [win]
       - resp.patch  # [win]
