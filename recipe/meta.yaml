@@ -16,16 +16,13 @@ source:
     sha256: b519b614c693dc26f553f0eb902fc707adab9d1759f17ff098412c14d6b290fe
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
-    - {{ compiler('c') }}  # [unix]
-    - {{ compiler('fortran') }}  # [unix]
-    - {{ stdlib('c') }}  # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
-    - {{ compiler('m2w64_fortran') }}  # [win]
-    - {{ stdlib('m2w64_c') }}  # [win]
+    - {{ stdlib("c") }}
+    - {{ compiler("c") }}
+    - {{ compiler("fortran") }}
     - llvm-openmp  # [osx]
     - libgomp  # [linux]
 
