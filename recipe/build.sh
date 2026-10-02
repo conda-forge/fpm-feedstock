@@ -24,8 +24,8 @@ mkdir -p $bootstrap
 export FPM_FC="${FC}"
 export FPM_CC="${CC}"
 export FPM_AR="${AR}"
-export FPM_LDFLAGS="${LDFLAGS}"
-export FPM_FCFLAGS="${FCFLAGS}"
+export FPM_LDFLAGS="${LDFLAGS} -fopenmp"
+export FPM_FCFLAGS="${FCFLAGS} -fopenmp"
 export FPM_CFLAGS="${CFLAGS}"
 if [ -z ${_MACOSX_DEPLOYMENT_TARGET+x} ]; then
   export MACOSX_DEPLOYMENT_TARGET=${_MACOSX_DEPLOYMENT_TARGET}
