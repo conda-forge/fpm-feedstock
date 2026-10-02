@@ -25,7 +25,7 @@ export FPM_FC="${FC}"
 export FPM_CC="${CC}"
 export FPM_AR="${AR}"
 export FPM_LDFLAGS="${LDFLAGS} -fopenmp"
-export FPM_FFLAGS="${FCFLAGS} -fopenmp"
+export FPM_FFLAGS="${FFLAGS} -fopenmp"
 export FPM_CFLAGS="${CFLAGS}"
 if [ -z ${_MACOSX_DEPLOYMENT_TARGET+x} ]; then
   export MACOSX_DEPLOYMENT_TARGET=${_MACOSX_DEPLOYMENT_TARGET}
