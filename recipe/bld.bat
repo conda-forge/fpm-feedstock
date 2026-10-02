@@ -5,8 +5,8 @@ set bootstrap=build\bootstrap
 set FPM_FC=%FC%
 set FPM_CC=%CC%
 set FPM_AR=%AR%
-set FPM_LFFLAGS=%LDFLAGS%
-set FPM_FCFLAGS=%FCFLAGS%
+set FPM_LDFLAGS=%LDFLAGS% -fopenmp
+set FPM_FCFLAGS=%FCFLAGS% -fopenmp
 set FPM_CFLAGS=%CFLAGS%
 
 mkdir %bootstrap%
