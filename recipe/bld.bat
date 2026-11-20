@@ -5,7 +5,9 @@ set bootstrap=build\bootstrap
 set FPM_FC=%FC%
 set FPM_CC=%CC%
 set FPM_AR=%AR%
-set FPM_LDFLAGS=%LDFLAGS% -fopenmp
+REM fpm 0.14.0 pins a libgfortran-internal locale counter on MinGW (a crash workaround),
+REM which the libgfortran DLL does not export: link libgfortran statically, as fpm releases do.
+set FPM_LDFLAGS=%LDFLAGS% -fopenmp -static-libgfortran -static-libquadmath
 set FPM_FFLAGS=%FFLAGS% -fopenmp
 set FPM_CFLAGS=%CFLAGS%
 
