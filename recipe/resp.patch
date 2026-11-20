@@ -1,9 +1,9 @@
 diff --git a/fpm.F90 b/fpm.F90
-index c24d667..0f589af 100644
+index 347c1cf..47920d6 100644
 --- a/fpm.F90
 +++ b/fpm.F90
-@@ -35661,7 +35661,7 @@ subroutine new_archiver(self, ar, echo, verbose)
-         end if
+@@ -34624,7 +34624,7 @@ subroutine new_archiver(self, ar, echo, verbose)
+         endif
        end if
      end if
 -    self%use_response_file = os_type == OS_WINDOWS
